@@ -1,0 +1,21 @@
+check-every = 5
+
+[[values]]
+id = "status"
+regex = "ups.status: ([A-Z ]*)?\n"
+mqtt-qos = 0
+mqtt-retained = false
+
+[[values]]
+id = "charge"
+regex = "battery.charge: ([0-9]*)?\n"
+mqtt-qos = 0
+mqtt-retained = false
+
+[mqtt]
+uri = "tcp://192.168.10.253:1883"
+client-id = "upsc-2-mqtt"
+topic-level = "home/devices/ups"
+
+[log]
+level = "DEBUG"

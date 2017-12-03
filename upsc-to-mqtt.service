@@ -1,0 +1,12 @@
+[Unit]
+Description=UPSC to MQTT
+After=network.target nut-server.service
+
+[Service]
+ExecStart=/usr/bin/upsc-to-mqtt /root/upsc-to-mqtt.toml
+ExecStop=/usr/bin/killall upsc-to-mqtt
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
